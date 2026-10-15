@@ -1,0 +1,14 @@
+# Smoke config. Numbers are not comparable to a GPU A6 retrieve.
+backend: toy
+n_items: 32
+max_batch: 8
+batch_window_ms: 0
+port: 8000
+
+n_bench_users: 16
+warmup: 2
+k_sweep: [5, 10]
+n_cand_sweep: [5, 10]
+beam_width_sweep: [1, 2, 4]
+constrained_sweep: [true, false]
+output_dir: checkpoints/serve_small

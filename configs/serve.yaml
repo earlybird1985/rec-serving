@@ -1,0 +1,16 @@
+# HSTU retrieve if the A6 checkpoint exists. Otherwise set backend: toy.
+backend: hstu
+hstu_checkpoint: ../hstu-recs/checkpoints/hstu/model.pt
+catalog_chunk: 4096
+max_batch: 16
+batch_window_ms: 8
+port: 8000
+
+# Used when user_sequences.parquet is present (A6 leave-last-out prefixes).
+user_sequences: ../hstu-recs/data/processed/user_sequences.parquet
+n_bench_users: 128
+warmup: 5
+k_sweep: [10, 50, 100]
+n_cand_sweep: [10, 50]
+beam_width_sweep: []
+output_dir: checkpoints/serve
